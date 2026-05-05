@@ -89,7 +89,6 @@ For every time period, the script:
 ![Sample 1](./charts/Top_50_Funds_yearly.png)
 
 🎯 Khatam Benchmark Chart
-(Place your second sample image here)
 
 ![Sample 2](./charts/Comparation_of_Khatam.png)
 
