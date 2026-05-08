@@ -16,8 +16,8 @@ warnings.filterwarnings("ignore")
 # تنظیمات اصلی
 # =========================================================
 
-END_DATE = "1405-02-13"
 START_DATE = "1404-01-01"
+END_DATE = "1404-12-29"
 CHARTS_DIR = "charts"
 TARGET_FUND = "خاتم"
 
@@ -144,7 +144,7 @@ def compute_return(nav_prices: pd.DataFrame, start_date: str, end_date: str) -> 
 def setup_plot_style():
     os.makedirs(CHARTS_DIR, exist_ok=True)
     plt.style.use("dark_background")
-    plt.rcParams["font.family"] = "DejaVu Sans"
+    plt.rcParams["font.family"] = "Sahel"
 
 
 # =========================================================
