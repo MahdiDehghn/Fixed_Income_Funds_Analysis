@@ -141,11 +141,11 @@ def compute_return(nav_prices: pd.DataFrame, start_date: str, end_date: str) -> 
 # تنظیمات نمودار
 # =========================================================
 
+
 def setup_plot_style():
     os.makedirs(CHARTS_DIR, exist_ok=True)
     plt.style.use("dark_background")
     plt.rcParams["font.family"] = "Sahel"
-
 
 # =========================================================
 # نمودار 50 صندوق برتر
@@ -161,7 +161,7 @@ def plot_top_funds(nav_prices: pd.DataFrame, top_n: int = 50):
 
         top_funds = returns.head(top_n)
         labels = [reshape_fa(f"{i + 1}. {name}") for i, name in enumerate(top_funds.index)]
-        colors = ["#9B266A" if name == TARGET_FUND else "#4A90E2" for name in top_funds.index]
+        colors = ["#9F276D" if name == TARGET_FUND else "#4A90E2" for name in top_funds.index]
 
         fig, ax = plt.subplots(figsize=(16, 10))
         fig.patch.set_facecolor("#040414")
