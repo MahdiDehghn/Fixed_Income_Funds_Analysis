@@ -4,6 +4,7 @@ from datetime import timedelta
 
 import pandas as pd
 import matplotlib.pyplot as plt
+plt.use("Agg")
 import finpy_tse as fp
 from persiantools.jdatetime import JalaliDate
 import arabic_reshaper
@@ -101,6 +102,8 @@ def fetch_nav_data(
 
     for fund in funds:
         try:
+            print(f"Fetching {fund} ...", flush=True)
+
             history = fp.Get_Price_History(
                 stock=fund,
                 start_date=start_date,
@@ -113,13 +116,13 @@ def fetch_nav_data(
 
             if history is not None and not history.empty and "Adj Close" in history.columns:
                 nav_prices[fund] = history["Adj Close"]
-                print(f"Collected: {fund}")
 
-        except Exception:
-            print(f"Failed: {fund}")
+            print(f"Done: {fund}", flush=True)
 
-    nav_prices = nav_prices.sort_index().ffill()
-    return nav_prices
+        except Exception as e:
+            print(f"Failed: {fund} -> {e}", flush=True)
+
+    return nav_prices.sort_index().ffill()
 
 
 def compute_return(nav_prices: pd.DataFrame, start_date: str, end_date: str) -> pd.Series:
